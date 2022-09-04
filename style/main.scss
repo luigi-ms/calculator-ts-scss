@@ -1,0 +1,40 @@
+$deviceWidth: 50vw;
+$deviceHeight: 25vh;
+$ctaButton: #3F51B5;
+
+#device {
+	width: $deviceWidth;
+	height: $deviceHeight;
+	padding: 2vw;
+	background-color: #041C32;
+	color: #ECB365;
+
+	#screen {
+		width: 0.96 * $deviceWidth;
+		height: 0.14 * $deviceHeight;
+		margin-bottom: 2vh;
+		color: inherit;
+	}
+
+	::placeholder { color: #ECB365;}
+
+	#buttons {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		button {
+			height: 0.13 * $deviceHeight;
+			color: white;
+			background-color: #864879;
+			margin: 1.25vw;
+			border: none;
+		
+			&:active {
+				background-color: #ECB365;
+			}
+		}
+		#equalBtn {
+			background-color: $ctaButton;
+		}
+	}
+}
