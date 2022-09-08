@@ -1,43 +1,55 @@
-const screenEl: HTMLInputElement = document.getElementById("screen") as HTMLInputElement,
-	numericButtons: NodeList = document.querySelectorAll(".numeric-btn") as NodeList,
-	operationButtons: NodeList = document.querySelectorAll(".operation-btn") as NodeList;
+const screenEl: HTMLSpanElement = document.getElementById("screen") as HTMLSpanElement,
+	buttons: NodeList = document.querySelectorAll("button") as NodeList;
+
+const sum = (x: number, y: number ) => { return x + y },
+	sub = (x: number, y: number) => { return x - y },
+	mul = (x: number, y: number) => { return x * y },
+	div = (x: number, y: number) => { return x / y };	
 
 let expr: string = "";
 
-function calculate(){
-	let sum = (x: number, y: number ) => { return x + y },
-		sub = (x: number, y: number) => { return x - y },
-		mul = (x: number, y: number) => { return x * y },
-		div = (x: number, y: number) => { return x / y };
-	
+function calculate(): string{
 	let nums: string[] = expr.split(/\D/),
-		opers: string[] = expr.split(/\d/);
+		oper: string[] = expr.split(/\d/);
 
-	let front: string = nums.shift();
-	for(let index of opers){
-		if(index === "+"){
-			let second: string = nums.shift();
-			let result: number = sum(Number(front), Number(second));
-			nums.unshift(result.toString());
-			front = nums.shift();
-			console.log(nums);
-		}
+	oper = oper.filter((op: string) => { return op !== "" });
+	
+	if(oper.length > 1){
+		return "Invalid Expression";
 	}
+
+	const total: string = nums.reduce((a: string, b: string) => {
+	 if(oper[0] === "+"){
+		return sum(Number(a), Number(b)).toString();
+	 }else if(oper[0] === "-"){
+		 return sub(Number(a), Number(b)).toString();
+	 }else if(oper[0] === "×"){
+		 return mul(Number(a), Number(b)).toString();
+	 }else if(oper[0] === "÷"){
+		 return div(Number(a), Number(b)).toString();
+	 }else{
+		 return "Invalid Operator";
+	 }
+	});
+	return total;
 }
 
-function handleClick(this: HTMLElement){
+function handleClick(this: HTMLElement): void{
 	if(this.id === "equalBtn"){
-		calculate();
+		expr = calculate();
+		if(expr === undefined){
+			expr = "Error";
+		}
+		screenEl.textContent = expr;
+	}else if(this.id === "clearBtn"){
+		screenEl.textContent = "0";
+		expr = ""
 	}else{
 		expr += this.textContent;
 		screenEl.textContent = expr;
 	}
 }
 
-numericButtons.forEach((btn: HTMLButtonElement) => {
-	btn?.addEventListener("click", handleClick);
-});
-
-operationButtons.forEach((btn: HTMLButtonElement) => {
+buttons.forEach((btn: HTMLButtonElement) => {
 	btn?.addEventListener("click", handleClick);
 });

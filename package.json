@@ -7,8 +7,8 @@
     "sass": "^1.54.7",
     "typescript": "^4.8.2"
   },
-	"scripts": {
-		"sass-dev": "sass --watch --update --style=expanded style:style",
-		"tsbuild": "tsc --build"
-	}
+  "scripts": {
+    "sass-dev": "sass --watch --update --style=expanded style:style",
+    "tsbuild": "tsc --build"
+  }
 }
