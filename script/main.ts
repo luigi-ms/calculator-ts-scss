@@ -1,4 +1,4 @@
-const screenEl: HTMLSpanElement = document.getElementById("screen") as HTMLSpanElement,
+const screenEl: HTMLOutputElement = document.getElementById("screen") as HTMLOutputElement,
 	buttons: NodeList = document.querySelectorAll("button") as NodeList;
 
 const sum = (x: number, y: number ) => { return x + y },

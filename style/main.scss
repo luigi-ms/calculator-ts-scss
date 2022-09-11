@@ -1,22 +1,24 @@
 $deviceWidth: 50vw;
-$deviceHeight: 25vh;
+$deviceHeight: 27vh;
 $ctaButton: #3F51B5;
 
 #device {
 	width: $deviceWidth;
 	height: $deviceHeight;
+	padding-top: 0.26 * $deviceHeight;
 	padding: 2vw;
 	background-color: #041C32;
 	color: #ECB365;
 
 	#screen {
-		width: 0.96 * $deviceWidth;
-		height: 0.14 * $deviceHeight;
-		margin-bottom: 2vh;
+		display: block;
+		max-width: 0.96 * $deviceWidth;
+		height: 0.13 * $deviceHeight;	
+		margin-bottom: 0.4vh;
+		margin-left: 0.8vw;
 		color: inherit;
+		border: 1px solid white;
 	}
-
-	::placeholder { color: #ECB365;}
 
 	#buttons {
 		display: grid;
@@ -31,6 +33,7 @@ $ctaButton: #3F51B5;
 		
 			&:active {
 				background-color: #ECB365;
+				color: #864879;
 			}
 		}
 		#equalBtn {
