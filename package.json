@@ -1,5 +1,5 @@
 {
-  "name": "calculator-sass-ts",
+  "name": "calculator-ts-scss",
   "version": "1.0.0",
   "main": "index.html",
   "license": "MIT",
@@ -10,5 +10,13 @@
   "scripts": {
     "sass-dev": "sass --watch --update --style=expanded style:style",
     "tsbuild": "tsc --build"
+  },
+  "author": {
+    "name": "Luigi Moraes",
+    "email": "luigimoraessantos@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luigi-ms-git/calculator-ts-scss/"
   }
 }
